@@ -1,17 +1,9 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "api/webhook.py",
-        "use": "@vercel/python"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/api/trello-webhook",
-        "methods": ["POST", "HEAD"],
-        "dest": "api/webhook.py"
-      }
-    ]
-  }
-  
+  "version": 2,
+  "builds": [
+    { "src": "api/webhook.py", "use": "@vercel/python" }
+  ],
+  "routes": [
+    { "src": "/api/.*", "dest": "api/webhook.py" }
+  ]
+}
